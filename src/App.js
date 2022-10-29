@@ -1,9 +1,11 @@
 import './App.css';
+import {SidePanel } from './components';
 
 function App() {
+
   return (
-    <div className="App">
-      
+    <div>
+      <SidePanel/>
     </div>
   );
 }
