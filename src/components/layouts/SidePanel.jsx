@@ -1,5 +1,6 @@
-import React, { useRef } from 'react'
-import { FolderNode } from '../FolderNode'
+import React, { useState } from 'react'
+import { ButtonPanel } from './ButtonPanel'
+import { FolderStructure } from './FolderStructure'
 
 const treeData = {
     id : "Great Grand Parent",
@@ -16,10 +17,11 @@ const treeData = {
         ]
       }
     ]
-  }
+}
 
 export const SidePanel = () => {
-    const depth = useRef(0)
+
+    const [treeDataState, setTreeDataState] = useState(treeData)
 
     return (
         <div 
@@ -34,9 +36,8 @@ export const SidePanel = () => {
                 flexWrap: 'nowrap'
             }}
         >
-            <ul>
-                <FolderNode node = {treeData} key={treeData.id} depth={depth.current}/>
-            </ul>
+            <FolderStructure data={treeDataState} />
+            <ButtonPanel setTreeDataState={setTreeDataState} />
         </div>
     )
 }
