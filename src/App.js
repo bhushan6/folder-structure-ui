@@ -1,11 +1,14 @@
 import './App.css';
-import {SidePanel } from './components';
+import { SidePanel } from './components';
+import { SelectionContext } from './contexts';
 
 function App() {
 
   return (
     <div>
-      <SidePanel/>
+      <SelectionContext>
+        <SidePanel/>
+      </SelectionContext>
     </div>
   );
 }
