@@ -1,27 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ButtonPanel } from './ButtonPanel'
 import { FolderStructure } from './FolderStructure'
 
-const initialTreeData = {
-    id : "Great Grand Parent",
-    children : [
-      {
-        id : "Son 1"
-      },
-      {
-        id : "Son 2",
-        children : [
-          {
-            id : "Daughter 1"
-          }
-        ]
-      }
-    ]
-}
-
 export const SidePanel = () => {
-
-    const [treeDataState, setTreeDataState] = useState(initialTreeData)
 
     return (
         <div 
@@ -36,8 +17,8 @@ export const SidePanel = () => {
                 flexWrap: 'nowrap'
             }}
         >
-            <FolderStructure data={treeDataState} />
-            <ButtonPanel setTreeDataState={setTreeDataState} />
+            <FolderStructure/>
+            <ButtonPanel/>
         </div>
     )
 }

@@ -1,41 +1,39 @@
 import React, {useRef} from 'react'
+import { useTreeState } from '../../contexts'
 import { FolderNode } from '../FolderNode'
+import { LayoutHeader } from '../LayoutHeader'
+import { Modal } from '@mui/material'
+import { FamilyDetailsForm } from '../FamilyDetailsForm'
 
-const treeData = {
-    id : "Great Grand Parent",
-    children : [
-      {
-        id : "Son 1"
-      },
-      {
-        id : "Son 2",
-        children : [
-          {
-            id : "Daughter 1"
-          }
-        ]
-      }
-    ]
-}
-
-export const FolderStructure = ({data}) => {
+export const FolderStructure = () => {
 
     const depth = useRef(0)
+
+    const [treeState] = useTreeState()
 
     return (
         <div 
             style={{
-                    border: '2px solid red',
-                    borderRadius: '4px',
+                    borderBottom: '2px solid black',
                     width: '100%',
                     flexGrow: 1,
                     overflowY : 'auto'
                 }}
         >
-            <h1 style={{fontSize: '0.9rem', textAlign: 'center'}} >Family Tree</h1>
-            <ul>
-                <FolderNode node = {data} key={data.id} depth={depth.current}/>
-            </ul>
+            <LayoutHeader header={'Family Tree'} />
+            {Object.keys(treeState).length > 0 && (
+                <ul>
+                    <FolderNode node = {treeState} key={treeState.id} depth={depth.current} />
+                </ul>
+            )}
+
+            {Object.keys(treeState).length < 1 && (
+                <>
+                    <Modal open={true} >
+                        <FamilyDetailsForm  />
+                    </Modal>
+                </>
+            )}
         </div>
     )
 }

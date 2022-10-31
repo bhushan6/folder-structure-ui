@@ -2,16 +2,20 @@ import React from 'react'
 import { PrintFamilyTreeBtn } from '..'
 import { AddFamilyBtn } from '../AddFamilyBtn'
 
-export const ButtonPanel = ({setTreeDataState}) => {
+export const ButtonPanel = () => {
+
   return (
     <div
         style={{
             display: 'flex',
             flexDirection: 'column',
-            width: '100%'
+            width: '100%',
+            gap: '5px',
+            justifyContent: 'space-around',
+            padding: '5px'
         }}
     >
-        <AddFamilyBtn setTreeDataState={setTreeDataState}/>
+        <AddFamilyBtn/>
         <PrintFamilyTreeBtn/>
     </div>
   )

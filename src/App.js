@@ -1,14 +1,19 @@
 import './App.css';
-import { SidePanel } from './components';
-import { SelectionContext } from './contexts';
+import { FamilyDetailsContainer, SidePanel } from './components';
+import { SelectionContext, TreeStateContext } from './contexts';
+
+
 
 function App() {
 
   return (
-    <div>
-      <SelectionContext>
-        <SidePanel/>
-      </SelectionContext>
+    <div id='App' >
+      <TreeStateContext>
+        <SelectionContext>
+          <SidePanel/>
+          <FamilyDetailsContainer/>
+        </SelectionContext>
+      </TreeStateContext>
     </div>
   );
 }
