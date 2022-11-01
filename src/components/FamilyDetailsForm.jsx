@@ -44,7 +44,7 @@ export const FamilyDetailsForm = ({handleClose = () => {}}) => {
               {familyInfo["Family Photo"] && familyInfo["Family Photo"].map(src => <img style={{padding : '5px'}} src={src} alt='family' key={src} width = {100} />)}
             </div>
             <div style={{textAlign : 'center'}} >
-              <Button variant="contained" component="label" type='submit'>Add</Button>
+              <Button variant="contained" type='submit'>Add</Button>
             </div>
         </form>
     </Box>
